@@ -1,8 +1,28 @@
+import { useState } from "react";
 import "./Card.css";
 
-type CardProps = { word: string };
+type CardType = "red" | "blue" | "neutral" | "assassin";
+type CardProps = { type: CardType; word: string };
 
-export const Card = ({ word }: CardProps) => {
+export const Card = ({ type, word }: CardProps) => {
+  const [isUncovered, setIsUncovered] = useState(false);
+
+  const handleCardClick = () => {
+    setIsUncovered(!isUncovered);
+  };
+
+  return (
+    <button onClick={handleCardClick}>
+      {isUncovered ? <Card.Back type={type} /> : <Card.Face word={word} />}
+    </button>
+  );
+};
+
+Card.Back = ({ type }: { type: CardType }) => {
+  return <div className="card">{type}</div>;
+};
+
+Card.Face = ({ word }: { word: string }) => {
   return (
     <div className="card">
       <div className="card__content">
