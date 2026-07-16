@@ -1,10 +1,58 @@
 .card {
-  border: 1px solid black;
-  border-radius: 16px;
-  background-color: #fafafa;
-  padding: 16px 32px;
-  aspect-ratio: 3/2;
+  --spacing: 16px;
 
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  border-radius: var(--spacing);
+  background-color: #dbcdb2;
+  aspect-ratio: 2/1;
+  padding: var(--spacing);
+
+  display: flex;
+  align-items: center;
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 4px 12px,
+    rgba(0, 0, 0, 0.23) 0px 3px 3px;
+
+  transition:
+    transform 0.25s cubic-bezier(0.68, -1.55, 0.265, 1.55),
+    box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: scale(1.15);
+  box-shadow:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  cursor: pointer;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 100%;
+  gap: 4px;
+
+  padding: 4px;
+  border: 2px dashed #7d7569;
+  border-radius: calc(var(--spacing) / 2);
+}
+
+.card__top {
+  display: flex;
+}
+
+.card__photo {
+  aspect-ratio: 2/3;
+  width: 24px;
+  align-self: flex-end;
+}
+
+.card__bottom {
+  background-color: white;
+  padding: 2px 4px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-end-start-radius: calc(var(--spacing) / 2);
+  border-end-end-radius: calc(var(--spacing) / 2);
 }
