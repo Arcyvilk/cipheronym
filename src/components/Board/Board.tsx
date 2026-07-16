@@ -13,7 +13,9 @@ export const Board = ({ size }: BoardProps) => {
 
   return (
     <>
-      <button onClick={handleResetBoard}>Generate new board</button>
+      <button className="btn-reset" onClick={handleResetBoard}>
+        Generate new board
+      </button>
 
       {board.length > 0 ? (
         <div className="board">

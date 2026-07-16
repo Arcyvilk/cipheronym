@@ -8,3 +8,16 @@
   width: 100vw;
   padding: var(--spacing-board);
 }
+
+.btn-reset {
+  padding: 16px 24px;
+  border-radius: 16px;
+  background-color: #f7dc92;
+  text-transform: uppercase;
+  font-size: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ebe1c7;
+  }
+}
