@@ -1,32 +1,27 @@
+import { useBoard, type Tile } from "../../hooks/useBoard";
 import { Card } from "../Card/Card";
-import { words } from "./words";
 import "./Board.css";
-import { shuffle } from "../../utils/shuffle";
 
 type BoardProps = { size: number };
 
 export const Board = ({ size }: BoardProps) => {
-  const { board } = useBoard(size);
+  const { board, generateBoard } = useBoard(size);
 
-  return (
-    <div className="board">
-      {board.map((tile) => {
-        return <Card key={tile.word} word={tile.word} type={tile.type} />;
-      })}
-    </div>
-  );
-};
-
-const useBoard = (size: number) => {
-  const generateBoard = () => {
-    const shuffledWords = shuffle(words);
-    const randomWords = shuffledWords
-      .slice(0, size)
-      .map((word: string) => ({ word, type: "red" }));
-    return randomWords;
+  const handleResetBoard = () => {
+    generateBoard();
   };
 
-  const board = generateBoard();
+  return (
+    <>
+      <button onClick={handleResetBoard}>Generate new board</button>
 
-  return { board };
+      {board.length > 0 ? (
+        <div className="board">
+          {board.map((tile: Tile) => {
+            return <Card key={tile.word} word={tile.word} type={tile.type} />;
+          })}
+        </div>
+      ) : null}
+    </>
+  );
 };

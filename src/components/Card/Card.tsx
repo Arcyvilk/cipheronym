@@ -1,9 +1,8 @@
 import { useState } from "react";
+import type { Tile, TileType } from "../../hooks/useBoard";
 import "./Card.css";
 
-type CardType = "red" | "blue" | "neutral" | "assassin";
-type CardProps = { type: CardType; word: string };
-
+type CardProps = Tile;
 export const Card = ({ type, word }: CardProps) => {
   const [isUncovered, setIsUncovered] = useState(false);
 
@@ -18,7 +17,7 @@ export const Card = ({ type, word }: CardProps) => {
   );
 };
 
-Card.Back = ({ type }: { type: CardType }) => {
+Card.Back = ({ type }: { type: TileType }) => {
   const className = `card card--${type}`;
   return <div className={className}>{type}</div>;
 };
