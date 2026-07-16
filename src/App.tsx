@@ -18,7 +18,7 @@ function App() {
       </section>
 
       <section>
-        <Board nrOfCards={25} />
+        <Board size={25} />
       </section>
 
       <section id="spacer"></section>

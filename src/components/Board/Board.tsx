@@ -1,25 +1,32 @@
 import { Card } from "../Card/Card";
-import "./Board.css";
 import { words } from "./words";
+import "./Board.css";
+import { shuffle } from "../../utils/shuffle";
 
-type BoardProps = { nrOfCards: number };
-export const Board = ({ nrOfCards }: BoardProps) => {
-  const getRandomWords = () => {
-    const nrOfWords = words.length;
-    const randomWords = new Array(nrOfCards).fill(null).map(() => {
-      const randomIndex = Math.floor(Math.random() * nrOfWords);
-      return words[randomIndex];
-    });
-    return randomWords;
-  };
+type BoardProps = { size: number };
 
-  const randomWords = getRandomWords();
+export const Board = ({ size }: BoardProps) => {
+  const { board } = useBoard(size);
 
   return (
     <div className="board">
-      {new Array(nrOfCards).fill(null).map((_, i) => {
-        return <Card key={i} word={randomWords[i]} />;
+      {board.map((tile) => {
+        return <Card key={tile.word} word={tile.word} type={tile.type} />;
       })}
     </div>
   );
+};
+
+const useBoard = (size: number) => {
+  const generateBoard = () => {
+    const shuffledWords = shuffle(words);
+    const randomWords = shuffledWords
+      .slice(0, size)
+      .map((word: string) => ({ word, type: "red" }));
+    return randomWords;
+  };
+
+  const board = generateBoard();
+
+  return { board };
 };

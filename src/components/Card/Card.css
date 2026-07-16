@@ -9,13 +9,13 @@
 
   box-sizing: border-box;
   border-radius: var(--card-spacing);
-  background-color: #dbcdb2;
   width: 100%;
   aspect-ratio: 16/9;
   padding: var(--card-spacing);
 
   display: flex;
   align-items: center;
+  background-color: #dbcdb2;
   box-shadow:
     rgba(0, 0, 0, 0.19) 0px 4px 12px,
     rgba(0, 0, 0, 0.23) 0px 3px 3px;
@@ -23,6 +23,19 @@
   transition:
     transform 0.25s cubic-bezier(0.68, -1.55, 0.265, 1.55),
     box-shadow 0.25s;
+
+  &.card--red {
+    background-color: #ff0000;
+  }
+  &.card--blue {
+    background-color: #0000ff;
+  }
+  &.card--assassin {
+    background-color: #030303;
+  }
+  &.card--neutral {
+    background-color: #dbcdb2;
+  }
 }
 
 .card:hover {

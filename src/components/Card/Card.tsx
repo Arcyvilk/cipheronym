@@ -19,7 +19,8 @@ export const Card = ({ type, word }: CardProps) => {
 };
 
 Card.Back = ({ type }: { type: CardType }) => {
-  return <div className="card">{type}</div>;
+  const className = `card card--${type}`;
+  return <div className={className}>{type}</div>;
 };
 
 Card.Face = ({ word }: { word: string }) => {
