@@ -27,7 +27,10 @@ Card.Face = ({ word }: { word: string }) => {
     <div className="card">
       <div className="card__content">
         <div className="card__top">
-          <img className="card__photo" src="" />
+          <img
+            className="card__photo"
+            src="https://www.pngkey.com/png/full/988-9886269_blank-person-facebook-no-profile.png"
+          />
         </div>
         <div className="card__bottom">
           <div className="card__word">{word.toLocaleUpperCase()}</div>
