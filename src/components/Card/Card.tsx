@@ -9,7 +9,9 @@ export const Card = ({ word }: CardProps) => {
         <div className="card__top">
           <img className="card__photo" src="" />
         </div>
-        <div className="card__bottom">{word.toLocaleUpperCase()}</div>
+        <div className="card__bottom">
+          <div className="card__word">{word.toLocaleUpperCase()}</div>
+        </div>
       </div>
     </div>
   );
