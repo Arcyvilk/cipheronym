@@ -1,5 +1,6 @@
 import "./Card.css";
 
-export const Card = () => {
-  return <div className="card">I am a card, yay</div>;
+type CardProps = { word: string };
+export const Card = ({ word }: CardProps) => {
+  return <div className="card">{word.toLocaleUpperCase()}</div>;
 };
