@@ -1,1 +1,5 @@
 @import url("./styles/reset.css");
+
+:root {
+  background-color: #00512c; /* tabletop colour */
+}

@@ -1,0 +1,6 @@
+.navigation {
+  position: sticky;
+  inset: 0;
+  width: 100%;
+  align-self: flex-start;
+}
